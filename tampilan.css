@@ -1,0 +1,449 @@
+@charset "utf-8";
+/* CSS Document */
+/* Website template by freewebsitetemplates.com */
+body {/*
+	background: url(../images/bg.jpg);*/
+	background-color:#FFF;
+	color: #ab967f;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	width:100%;
+	/*min-width: 960px;*/
+	padding: 0;
+}
+/*====================================================Header==========================================================*/
+a {
+	outline: none;
+}
+img {
+	border: 0;
+}
+p a {
+	color: #ab967f;
+}
+p a:hover {
+	color: #ff8400;
+}
+.header {
+	/*min-height: 300px;*/
+	height:100px;
+	width:100%;
+	position: relative;
+}
+.header div.section {
+	background: none;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 960px;
+}
+.header div.section a {
+	display: inline-block;
+	float: left;
+	margin: 21px 0 0;
+}
+.header div.section a .gbr{
+	border-radius:10px;
+}
+.header div.section ul {
+	float: right;
+	list-style: none;
+	margin: 54px 0 0;
+	padding: 0;
+}
+.header div.section ul li {
+	float: left;
+}
+.header div.section ul li:hover {
+	background: url(../images/header-bg.png) no-repeat 0 /*-521px*/;
+	border-radius:10px;
+	/*color: #1f1005;*/
+	text-shadow: 0 1px #ffc600;
+}
+.header div.section ul li.current a {
+	/*background: url(images/header-bg.png) no-repeat 0 -521px*/;
+	border-radius:10px;
+	/*color: #1f1005;*/
+	text-shadow: 0 1px #ffc600;
+}
+.header div.section ul li a {
+	display: block;
+	color: #839a00;
+	float: none;
+	font-size: 16px;
+	height: 49px;
+	line-height: 49px;
+	margin: 0;
+	text-align: center;
+	text-decoration: none;
+	text-transform: capitalize;
+	width: 130px;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Tampilan Index.html>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*====================================================Gambar Utama==========================================================*/
+.utama{
+	background: url(../images/5379918_20130420105612.jpg) repeat-x center top;
+	border-radius:5px;
+	width:98%;
+	height:500px;
+	margin:10px;
+}
+
+/*====================================================Menu Login==========================================================*/
+.login{
+	/*background:url(images/header-bg.png) repeat-x center top;*/
+	width:98%;
+	height:380px;
+	border:medium;
+	border-color:#09F;
+	margin:10px;
+	border-radius:10px;
+}
+.login .formulir{
+	text-align: justify;
+	padding:10px;
+	font-size:16px;
+	margin-left: 20px auto;
+	border-radius:10px;
+}
+.login .formulir .signin{
+	padding:15px;
+	background:url(../images/bg-pattern.jpg) repeat-x center top;
+	float: right;
+	width:47%;
+	border-radius:10px;
+}
+.login .formulir .signup{
+	padding:15px;
+	background: url(../images/bg-pattern.jpg) repeat-x center top;
+	float: left;	
+	width:47%;
+	border-radius:10px;
+}
+.login .formulir input{
+	border-radius:10px;
+	text-align:justify;
+	padding:10px;
+	font-size:24px;
+	margin-bottom:25px;
+	margin-left:10px;
+	width:50%;
+	border-color:#CC6;
+	background:#DDD;
+	font-family:Verdana, Geneva, sans-serif;
+	size:30px;	
+}
+.login .formulir h2.daftar{
+	background: url(../images/background-blog-web.jpg);
+	border-radius:10px;
+	margin:10px;
+	width:360px;
+	height:60px;
+	text-align:center;
+	font-size:36px;
+	padding-top:20px;
+}
+
+.login .formulir h2.daftar:hover{
+	background: url(../images/bg-header2.jpg);
+	border-radius:10px;
+	margin:10px;
+	width:360px;
+	height:60px;
+	text-align:center;
+	font-size:36px;
+	padding-top:20px;
+}
+
+/*====================================================Menu Event==========================================================*/
+/*.menuevent{
+	background:url(images/background-blog-web.jpg) repeat-x center top;
+	width:98%;
+	height:200px;
+	border-radius:10px;
+	margin: 10px;
+}*/
+.bawah{
+	background: none repeat-x center top;
+	text-align: center;
+	/*list-style-position:outside;*/
+}
+/*.bawah .judevent{
+	background: url(../images/headerBg-1.jpg) repeat-x left top;
+	width:100%;
+	border-radius:10px;
+}
+.bawah .judevent h2 {
+	color: #EEE;
+	font-size: 34px;
+	line-height: 82px;
+	width: 1200px;
+	margin: 0 auto;
+	/*padding: 0 10px;
+	text-shadow: -3px 0 3px #121413;
+}*/
+.bawah .event {
+	/*background: url(../images/bg_event.jpg) repeat-x center top;*/
+	height: 300px;
+	display: block;
+	list-style: none;
+	width: 1350px;
+	margin: 0 auto;
+	padding: 2px;
+}
+.event li {
+	float: left;
+	width: 220px;
+	margin: 0 13px;
+	text-align: center;
+}
+.event li img{
+	border-radius:10px;
+}
+.event li img{
+	color: #51a9e9;
+}
+.event li:hover{
+	color: #51a9e9;
+}
+.event li p{
+	color: #07304d;
+	text-decoration: none;
+}
+.event li h3 {
+	color: #07304d;
+	font-size: 18px;
+	margin: 18px 0;
+}
+.event li h3 a {
+	color: #07304d;
+	text-decoration: none;
+}
+.event li h3 a:hover {
+	color: #51a9e9;
+}
+.bawah .copy{
+	height:30px;
+	float: left;
+	display: inline-block;
+	color: #03436f;
+	text-align:center;
+	width: 1350px;
+	/*margin-right: 10px;*/
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Tampilan event.html>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*===========================================================Utama event============================================================*/
+.eventutama{
+	background:none repeat-x center top;
+	width:98%;
+	margin:10px;
+	padding:8px;
+	border-radius:10px;
+}
+.eventutama .eventberita{
+	float:left;
+	background:url(../images/Abstract%20grunge%20music%20background%20with%20retro%20microphone-PREVIEW.jpg);
+	width:75%;
+	border-radius:10px;
+	padding:10px;
+	font-size: 16px;
+	color:#EEE;
+	text-align:justify;
+	margin-bottom:10px;
+}
+
+/*===========================================================Sponsor event============================================================*/
+.eventutama .sponsor{
+	background-color:#fff;
+	border:1px solid #dfe1e4;
+	border-radius:10px;
+	float:right;
+	width:21%;
+	height:auto;
+	height:600px;
+	margin:10px;
+}
+.eventutama .sponsor ul {
+	list-style:none;
+	margin:0;
+	overflow:hidden;
+	padding:13px 0 0;
+}
+.eventutama .sponsor ul li/*:first-child*/ {
+	border:0;
+	float:none;
+	padding-top:41px;
+	width:auto;
+}/*
+.eventutama .sponsor ul li {
+	border-left:1px solid #DFE1E4;
+	border-top:1px solid #DFE1E4;
+	float:left;
+	margin:0 0 0 -1px;
+	min-height:231px;
+	padding:39px 13px 0 20px;
+	position:relative;
+	width:130px;
+}
+.eventutama .sponsor ul li span {
+	border-bottom:2px solid #ff8b00;
+	color:#6b7073;
+	display:inline;
+	font-size:14px;
+	left:0;
+	letter-spacing:.05em;
+	line-height:24px;
+	padding:0 0 1px 17px;
+	position:absolute;
+	top:0;
+	width:70px;
+}*/
+.eventutama .sponsor ul li h2 {
+	color:#444;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:14px;
+	font-weight:400;
+	letter-spacing:.05em;
+	line-height:24px;
+	margin:0 0 5px;
+}
+.eventutama .sponsor ul li a {
+	display:inline;
+	text-decoration:underline;
+}
+.eventutama .sponsor ul li p {
+	margin:12px 0 25px;
+}
+.eventutama .sponsor ul li a .more {
+	display:inline;
+	font-size:14px;
+	text-decoration:none;
+}
+.eventutama .sponsor a {
+	border-top:1px solid #DFE1E4;
+	color:#6b7073;
+	display:block;
+	font-size:12px;
+	letter-spacing:.05em;
+	line-height:18px;
+	padding:7px 0;
+	text-align:center;
+	text-decoration:none;
+}
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Tampilan profil.html>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*===========================================================Utama profil============================================================*/
+.profilutama{
+	background:url(../images/256317_256598307777307_2048407688_o.jpg) repeat-x center top;
+	width:98%;
+	border-radius:10px;
+	height:200px;
+	margin:10px;
+}
+
+/*===========================================================profil band============================================================*/
+.bandprof{
+	background:url(../images/582051210632301.jpg);
+	width:100%;
+	border-color:#006;
+	border-bottom-style:dotted;	
+}
+.bandprof .bandprofil{
+	background:url(../images/bg-header2.jpg) scroll bottom;
+	width:20%;
+	margin:10px;
+	height:600px;
+	border-radius:10px;
+}
+.bandprof .bandisi{
+	background:url(../images/AAA-INDIE.jpg);
+	width:76%;	
+	border-radius:10px;
+	margin:10px;
+}
+.bandprof .bandisi .bandlagu{
+	background:#006;
+	border-radius:10px;	
+	width:98%;
+	margin:10px;
+}
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Tampilan contact.html>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*===========================================================Tampilan============================================================*/
+.contents .contact {
+	min-height: 500px;
+}
+.contact form {
+	width: 605px;
+	margin: 0 0 30px;
+}
+.contact label {
+	display: inline-block;
+	font-size: 14px;
+	width: 110px;
+	margin: 0 0 12px;
+	padding: 0 10px 0 0;
+	text-align: right;
+}
+.contact label .msg {
+	vertical-align: top;
+}
+.contact input .txtfield {
+	height: 28px;
+	line-height: 28px;
+	width: 460px;
+	border: 1px solid #bbbbbb;
+	margin: 0 0 12px;
+	padding: 0 4px;
+}
+.contact textarea {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	height: 283px;
+	line-height:24px;
+	width: 460px;
+	border: 1px solid #bbbbbb;
+	margin: 0 0 12px;
+	padding: 0 4px;
+	overflow: auto;
+	resize: none;
+}
+.contact input .btn {
+	background-color: #f1f1cd;
+	color: #000;
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	border: 0;
+	border-radius: 5px;
+	margin-left: 124px;
+	padding: 0 10px;
+}
+.contact input .btn:hover {
+	background-color: #d9e5a9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
