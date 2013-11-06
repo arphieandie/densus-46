@@ -1,4 +1,4 @@
 densus-46
 =========
 
-website untuk mempromosikan band indie
+kelomok densus 46 buat forum disini
