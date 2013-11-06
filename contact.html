@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" href="css/tampilan.css" type="text/css" />
+</head>
+<body>
+	<div class="header">
+    	<div class="section">
+			<a href="index.html"><img class="gbr" src="images/logo.jpg" alt="Image"></a>
+			<ul>
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="event.html">Event</a>
+				</li>
+				<li>
+					<a href="profil.html">Profil</a>
+				</li>
+				<li class="current">
+					<a href="contact.html">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+    <div class="contents">
+		<div class="contact">
+			<form>
+				<label>Your Name:</label>
+				<input type="text" value="Your Name" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+				<br />
+				<label>Email Address:</label>
+				<input type="text" value="Email Addres" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+				<br />
+				<label>Subject:</label>
+				<input type="text" value="Subject" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+				<br />
+				<label class="msg">Concern:</label>
+				<textarea onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">Message</textarea>
+				<input type="submit" value="Send message" class="btn">
+
+			</form>
+		</div>
+	</div>
+    <div class="bawah">
+        <p class="copy">
+			© Copyright © 2013.Company name all rights reserved
+		</p>
+    </div> 
+</body>
+</html>
