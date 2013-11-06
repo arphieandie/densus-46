@@ -1,4 +1,5 @@
 densus-46
 =========
 
-kelomok densus 46 buat forum disini
+index.html, event.html, contact.html, profil.html di letakkan difolder newbie/
+tampilan.css diletakkan di folder newbie/css
