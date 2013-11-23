@@ -1,23 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+	include ('db.php');
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Newbie</title>
 <link rel="stylesheet" href="tampilan.css" type="text/css" />
 </head>
 <body>
 	<div class="header">
     	<div class="section">
-			<a href="index.html"><img class="gbr" src="images/newbielogo copy.jpg" width="160px" height="80px" alt="Image" /></a>
+			<a href="index.php"><img class="gbr" src="images/newbielogo copy.jpg" width="160px" height="80px" alt="Image" /></a>
 			<ul>
 				<li>
-					<a href="index.html">Home</a>
+					<a href="index.php">Home</a>
 				</li>
 				<li>
-					<a href="event.html">Event</a>
+					<a href="event.php">Event</a>
 				</li>
 				<li>
-					<a href="profil.html">Profil</a>
+					<a href="profil.php">Profil</a>
 				</li>
 			</ul>
 		</div>
@@ -27,28 +30,34 @@
     </div>
     <div class="contents">
 		<div class="contact">
-			<form>
+			<form method="post" action="Proses_Komentar.php">
 				<label>Your Name:</label>
-				<input type="text" value="Your Name" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+				<input type="text" name="Nama"/>
 				<br />
 				<label>Email Address:</label>
-				<input type="text" value="Email Addres" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+				<input type="text" name="Email"/>
 				<br />
 				<label>Subject:</label>
-				<input type="text" value="Subject" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+				<input type="text" name="Subjek"/>
 				<br />
 				<label class="msg">Concern:</label>
-				<textarea onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">Message</textarea>
+				<textarea name="Komen"></textarea>
 				<input type="submit" value="Send message" class="btn">
 
 			</form>
 		</div>
 	</div>
     <div class="footer">
+    	<div class="snetwork"></div>
+    	<div class="connect">
+			<a href="http://newbieid.com/go/facebook/" target="_blank" class="facebook"></a> 
+            <a href="http://newbie.com/go/twitter/" target="_blank" class="twitter"></a>
+            <a href="http://newbie.com/go/googleplus/" target="_blank" class="googleplus"></a> 
+		</div>
     	<div class="secti">
 			<ul>
-            	<li class="pilih">
-					<a href="contact.html">Contact</a>
+            	<li>
+					<a href="contact.php">Contact</a>
 				</li>
                 <li>
 					<a href="about.html">About</a>
