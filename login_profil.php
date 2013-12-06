@@ -8,11 +8,20 @@
 <title>Newbie</title>
 <link rel="stylesheet" href="tampilan.css" type="text/css" />
 <script type="text/javascript" src="drop_menu.js"></script>
+<style type="text/css">
+.gambarphoto{
+	border:0;
+	border-radius:8px;
+	width:120px;
+	height:120px;
+	margin:5px;
+}
+</style>
 </head>
 <body>
 	<div class="header">
     	<div class="section">
-			<a href="#"><img class="gbr" src="images/newbielogo copy.jpg" width="160px" height="80px" alt="Image" /></a>
+			<a href="#"><img class="gbr" src="images/newbiehead.jpg" width="160px" height="80px" alt="Image" /></a>
             <div class="headerfix">
 				<ul class="menu" id="menu">
             		<li>
@@ -51,23 +60,39 @@
         </div>
         <div class="lagu">
 			<div class="judulin"><h2>Lagu</h2></div>
-            
+            <form method="post" action="uploadlagu.php" class="formdaftar" enctype="multipart/form-data">
+            	<input type="file" name="lagu" class="letak" class="a" value="upload lagu"/><br />
+                <input type="submit" value="kirim" /><input type="reset" value="reset" />
+            </form>
+            <?php
+			/*$member=$_SESSION["Login"];username,='".$member."'*/    
+			$q1 = "SELECT namalagu,lokasi from lagu"; //memilih file dari database
+			$result = mysql_query($q1);
+			while ($data = mysql_fetch_array($result)) {
+				$loc = $data['lokasi'];
+				echo"<img src='images/sound.jpg' width='20px' height='20px' align='left'/>$data[0]
+						<br/>";
+				}
+			?>    
         </div>
         <div class="photo">
         	<div class="judulin"><h2>Photo</h2></div>
             <div class="jarak"></div>
-            <form method="post" action="upload.php" enctype="multipart/form-data">
-            	<input type="text" name="foto" class="letak" value="upload lagu"/><br />
+            <div class="jarak"></div>
+            <form method="post" action="upload.php" class="formdaftar" enctype="multipart/form-data">
+            	<input type="file" name="foto" class="letak" class="a" value="upload lagu"/><br />
                 <input type="submit" value="kirim" /><input type="reset" value="reset" />
             </form>
             <?php
-				$query = "SELECT * FROM photo ORDER BY Date DESC";
-				$hasil_query = mysql_query($query);
-		
-				while ($data = mysql_fetch_object($hasil_query)) {
-					echo $data -> foto;
+			/*$member=$_SESSION["Login"];username,='".$member."'*/    
+			$q1 = "SELECT namafoto,lokasi from photo"; //memilih file dari database
+			$result = mysql_query($q1);
+			while ($data = mysql_fetch_array($result)) {
+				$loc = $data['lokasi'];
+				echo"<img class='gambarphoto' src=$loc align='left'/>";
 				}
-			?>
+			?>       
+
         </div>
     </div>
     <div class="bawah">
