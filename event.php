@@ -4,11 +4,65 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Newbie</title>
 <link rel="stylesheet" href="tampilan.css" type="text/css" />
+<style type="text/css">
+.jelasevent{
+	/*background:rgba(0,0,0,0.9);
+	background: url(images/red_background.jpg) center;*/
+	width:98%;
+	height:430px;
+	border-radius:8px;
+	color: #033;
+	font-style:italic;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:18px;
+}
+.gambareventas{
+	border-radius:8px;
+	width:100%;
+	height:400px;
+	margin:10px;
+}
+.eventa{
+	background:rgba(0,0,0,0.8);
+	width:98%;
+	height:98px;
+	border-radius:8px;
+	color:#0FF;
+	font-style:italic;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:14px;
+	margin-bottom:10px;
+}
+.eventa:hover{
+	background: url(images/header.png) center;
+	color:#030;
+}
+.gambareventa{
+	border-radius:8px;
+	width:80px;
+	height:80px;
+	margin:10px;
+}
+.sponsorberita{
+	border-bottom:solid;
+	border:#AAA;
+	color:#444;
+	text-align:justify;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+}
+.sponsorberita .gbrberita{
+	width:100px;
+	height:100px;
+	border:#777;
+	margin-right:5px;
+}
+</style>
 </head>
 <body>
 	<div class="header">
     	<div class="section">
-			<a href="index.php"><img class="gbr" src="images/newbielogo copy.jpg" width="160px" height="80px" alt="Image" /></a>
+			<a href="index.php"><img class="gbr" src="images/newbiehead.jpg" width="160px" height="80px" alt="Image" /></a>
 			<ul>
 				<li>
 					<a href="index.php">Home</a>
@@ -24,16 +78,58 @@
 	</div>
     <div class="event">
     	<div class="namaevent">
-			<div class="judulin"><h2>Event</h2></div>
-            
+        	<div class="judulin"><h2>Event</h2></div>
+        	<div class="jarak1"></div>
+            <div class="jarak"></div>
+             <?php
+			include "db.php";
+			$q1 = "SELECT nama,tempat,pukul,tanggal,lokasi,kesimpulan from event"; //memilih file dari database
+			$result = mysql_query($q1);
+			while ($data = mysql_fetch_array($result)) {
+				$loc = $data['lokasi'];
+				echo"<a onclick=''><div class='eventa'><img class='gambareventa' src=$loc align='left'/>
+							Nama Event : $data[0]<br/>
+						</div></a>";
+				}
+			?>       
         </div>
         <div class="penjelasan">
        		<div class="judulin"><h2>Penjelasan</h2></div>
-            
+            <div class="jarak1"></div>
+            <div class="jarak"></div>
+			 <?php
+			/*include "db.php";
+			$q1 = "SELECT nama,tempat,pukul,tanggal,lokasi,kesimpulan from event"; //memilih file dari database
+			$result = mysql_query($q1);
+			while ($data = mysql_fetch_array($result)&&$cek==1) {
+				$loc = $data['lokasi'];
+				echo"<div class='jelasevent'><img class='gambareventas' src=$loc align='left'/>
+							Nama Event : $data[0]<br/>
+							Tempat : $data[1]<br/>
+							pukul : $data[2]<br/>
+							Kesimpulan : $data[5]<br/>
+						</div><br/>";
+				}*/
+			?>       
         </div>
         <div class="sponsor">
 			<div class="judulin"><h2>Sponsor</h2></div>
-            
+            <div class="jarak1"></div>
+             <?php
+			include "db.php";
+			  
+			$q1 = "SELECT namasponsor,link,lokasi,kesimpulan from sponsor"; //memilih file dari database
+				$result = mysql_query($q1);
+				while ($data = mysql_fetch_array($result)) {
+					$loc = $data['lokasi'];
+			echo"";
+			echo"<div class='sponsorberita'>
+					<h2>$data[0]</h2>
+					<img class='gbrberita' src=$loc align='left'/>
+					$data[3]<br/>
+					<a target='_blank' href='$data[1]'><h4>$data[1]</h4></a></div>";
+				}
+			?>     
         </div>
     </div>
     <div class="footer">
