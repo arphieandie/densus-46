@@ -1,4 +1,4 @@
 densus-46
 =========
 
-HELP ME !!
+Ayo kita selesaikan
