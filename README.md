@@ -1,4 +1,4 @@
 densus-46
 =========
 
-Ayo kita selesaikan
+Semangat terus walaupun kita sedang libur
