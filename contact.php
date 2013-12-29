@@ -7,11 +7,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Newbie</title>
 <link rel="stylesheet" href="tampilan.css" type="text/css" />
+<style type="text/css">
+.formsetting{
+	background: rgba(0,0,0,0.8);
+	margin:20px;
+	padding:20px;
+	color:#9FF;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:16px;
+	font-style:italic;
+	border-radius:6px;
+}
+.formsetting input{
+	border-radius:6px;
+	width:300px;
+	border:solid;
+	border-color:#000;
+	font-size:20px;
+	color:#0C0;
+	margin:5px;
+	padding:4px;
+}
+.b{
+	background:url(images/header_red.jpg) center;
+	border-radius:4px;
+}
+.b:hover{
+	background:url(images/website-header-red.jpg) center;
+}
+</style>
 </head>
 <body>
 	<div class="header">
     	<div class="section">
-			<a href="index.php"><img class="gbr" src="images/newbielogo copy.jpg" width="160px" height="80px" alt="Image" /></a>
+			<a href="index.php"><img class="gbr" src="images/newbiehead.jpg" width="160px" height="80px" alt="Image" /></a>
 			<ul>
 				<li>
 					<a href="index.php">Home</a>
@@ -30,7 +59,7 @@
     </div>
     <div class="contents">
 		<div class="contact">
-			<form method="post" action="Proses_Komentar.php">
+			<form method="post" action="Proses_Komentar.php" class="formsetting">
 				<label>Your Name:</label>
 				<input type="text" name="Nama"/>
 				<br />
@@ -42,7 +71,7 @@
 				<br />
 				<label class="msg">Concern:</label>
 				<textarea name="Komen"></textarea>
-				<input type="submit" value="Send message" class="btn">
+				<input type="submit" value="Send message" class="b">
 
 			</form>
 		</div>
