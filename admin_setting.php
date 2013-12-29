@@ -5,11 +5,40 @@
 <title>Newbie</title>
 <link rel="stylesheet" href="tampilan.css" type="text/css" />
 <script type="text/javascript" src="drop_menu.js"></script>
+<style type="text/css">
+.formsetting{
+	background: rgba(0,0,0,0.8);
+	margin:20px;
+	padding:20px;
+	color:#9FF;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:16px;
+	font-style:italic;
+	border-radius:6px;
+}
+.formsetting input{
+	border-radius:6px;
+	width:300px;
+	border:solid;
+	border-color:#000;
+	font-size:20px;
+	color:#0C0;
+	margin:5px;
+	padding:4px;
+}
+.b{
+	background:url(images/header_red.jpg) center;
+	border-radius:4px;
+}
+.b:hover{
+	background:url(images/website-header-red.jpg) center;
+}
+</style>
 </head>
 <body>
 	<div class="header">
     	<div class="section">
-			<a href="index.html"><img class="gbr" src="images/newbielogo copy.jpg" width="160px" height="80px" alt="Image" /></a>
+			<a href="index.html"><img class="gbr" src="images/newbiehead.jpg" width="160px" height="80px" alt="Image" /></a>
             <div class="headerfix">
 				<ul class="menu" id="menu">
             		<li>
@@ -39,7 +68,23 @@
     </div>
     <div class="setting">
     	<div class="judulin"><h2>Setting</h2></div>
-    
+        <div class="jarak1"></div>
+    	 <form method="post" name="form" class="formsetting">
+        	Nama Band :<br/>
+      		<input type='text' name='namaBand' /><br />
+       		Basecamp :<br/>
+            <input type='text' name='basecamp' /><br />
+			Aliran :<br/>
+      		<input type='text' name='pukul' /><br />
+       		Personil :<br/>
+            <input type='text' name='ddmmyyyy' /><br />
+			Gambar :<br/>
+            <input type='file' name='foto' class='b' /><br />
+			Keterangan (Maks 20kata):<br/>
+			<textarea name='simpul' cols='100' rows='3'></textarea><br />
+			<input type='submit' value='Tambah' class='b' />
+            <input type="reset" value="Reset" class="b"/>
+        </form>
     </div>
 </body>
 </html>
