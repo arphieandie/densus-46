@@ -1,6 +1,6 @@
 <?php
-	include ("db.php");
-		
-	$query=mysql_query ("delete from contact where nama='$nama'",mysql_connect("localhost","root",""));
-	include ("admin_pesan.php");
+include "db.php";
+$iden = $_GET['nama'];
+mysql_query("delete from contact where nama='$iden'");// or die("Gagal menghapus data.");
+echo"<meta http-equiv='refresh'content='0;url=admin_pesan.php'>";
 ?>
