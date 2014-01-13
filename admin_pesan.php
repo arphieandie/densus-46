@@ -9,11 +9,11 @@
 <body>
 	<div class="header">
     	<div class="section">
-			<a href="#"><img class="gbr" src="images/newbielogo copy.jpg" width="160px" height="80px" alt="Image" /></a>
+			<a href="#"><img class="gbr" src="images/newbiehead.jpg" width="160px" height="80px" alt="Image" /></a>
             <div class="headerfix">
 				<ul class="menu" id="menu">
             		<li>
-						<a href="#" class="menulink"><!--<img src="images/jyjtyj.jpg" width="130px" height="50px" />--></a>
+						<a href="#" class="menulink">NEWBIE</a>
 						<ul>	
                         	<li>
 								<a href="admin_profil.php">Profil</a>
@@ -22,7 +22,7 @@
 								<a href="admin_pesan.php">Message</a>
 							</li>
                             <li>
-								<a href="admin_setting.php">Setting</a>
+								<a href="admin_setting.php">Transaksi</a>
 							</li>
                             <li>
 								<a href="Logout.php">Logout</a>
@@ -48,7 +48,7 @@
 				$hasil_query = mysql_query($query);
 		
 				while ($data= mysql_fetch_row($hasil_query)) {
-					echo "<div class='tampilkomen'><h3 class='nama'>$data[4] - $data[0] / <a class='mail'>$data[1]</a> / $data[2]</h3><h5 class='komentar'>$data[3]</h5><a href='delete.php?nama=$data[0]\'>Delete</a></div>";
+					echo "<div class='tampilkomen'><h3 class='nama'>$data[4] - $data[0] / <a class='mail'>$data[1]</a> / $data[2]</h3><h5 class='komentar'>$data[3]</h5><a href='delete.php?nama=$data[0]'>[Delete]</a></div>";
 				}
             ?>
         </div>
