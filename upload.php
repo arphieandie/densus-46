@@ -1,7 +1,8 @@
 <?php
 	include("db.php");
-	
+	session_start();
 	$foto=$_FILES["foto"];
+	$pengenal=$_SESSION["Login"];
 	
 	if(empty($foto)){
 		echo "<script type='text/javascript'>alert ('ADA FORM KOSONG !! Silahkan Masukkan Semua Form Dengan Benar');</script>";
@@ -18,7 +19,7 @@
 		if($fileSize > 0 || $fileError == 0){ //Check jika error
 	   		$move = move_uploaded_file($_FILES['foto']['tmp_name'],$lokasi); //save gambar ke folder
 			if($move){
-				$q = "INSERT into photo VALUES('','$fileName','photo/$fileName')"; //memasukkan data ke database
+				$q = "INSERT into photo VALUES('$pengenal',' ','$fileName','photo/$fileName')"; //memasukkan data ke database
 	   			mysql_query($q);
 	
 	 			echo"<meta http-equiv='refresh'content='0;url=login_profil.php'>";// mengarahkan ke file tampil foto
