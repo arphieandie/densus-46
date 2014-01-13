@@ -46,10 +46,10 @@
 					<a href="index.php">Home</a>
 				</li>
 				<li>
-					<a href="event.php">Event</a>
+					<a href="event.php?tempat=">Event</a>
 				</li>
 				<li>
-					<a href="profil.php">Profil</a>
+					<a href="profil.php?id=">Profil</a>
 				</li>
 			</ul>
 		</div>
