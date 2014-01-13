@@ -11,9 +11,8 @@
 	width:98%;
 	height:430px;
 	border-radius:8px;
-	color: #033;
-	font-style:italic;
-	font-family:Verdana, Geneva, sans-serif;
+	color: #222;
+	font-family: 'Muli-Light';
 	font-size:18px;
 }
 .gambareventas{
@@ -23,14 +22,12 @@
 	margin:10px;
 }
 .eventa{
-	background:rgba(0,0,0,0.8);
 	width:98%;
 	height:98px;
 	border-radius:8px;
-	color:#0FF;
-	font-style:italic;
-	font-family:Verdana, Geneva, sans-serif;
-	font-size:14px;
+	color:#222;
+	font-family: 'Muli-Light';
+	font-size:16px;
 	margin-bottom:10px;
 }
 .eventa:hover{
@@ -48,14 +45,17 @@
 	border:#AAA;
 	color:#444;
 	text-align:justify;
-	font-family:Verdana, Geneva, sans-serif;
-	font-size:11px;
+	font-family: "Muli";
+	font-size:14px;
 }
 .sponsorberita .gbrberita{
 	width:100px;
 	height:100px;
 	border:#777;
 	margin-right:5px;
+}
+.lik{
+	text-decoration: none;
 }
 </style>
 </head>
@@ -68,10 +68,10 @@
 					<a href="index.php">Home</a>
 				</li>
 				<li class="current">
-					<a href="event.php">Event</a>
+					<a href="event.php?tempat=">Event</a>
 				</li>
 				<li>
-					<a href="profil.php">Profil</a>
+					<a href="profil.php?id=">Profil</a>
 				</li>
 			</ul>
 		</div>
@@ -83,13 +83,13 @@
             <div class="jarak"></div>
              <?php
 			include "db.php";
-			$q1 = "SELECT nama,tempat,pukul,tanggal,lokasi,kesimpulan from event"; //memilih file dari database
+			$q1 = "SELECT nama,tempat,pukul,tanggal,lokasi,kesimpulan,namatxt from event order by date desc"; //memilih file dari database
 			$result = mysql_query($q1);
 			while ($data = mysql_fetch_array($result)) {
 				$loc = $data['lokasi'];
-				echo"<a onclick=''><div class='eventa'><img class='gambareventa' src=$loc align='left'/>
-							Nama Event : $data[0]<br/>
-						</div></a>";
+				echo"<a class='lik' href='?tempat=upload/$data[6]'><div class='eventa'><img class='gambareventa' src=$loc align='left'/>
+							$data[0]<br/>
+						</div></a><hr/>";
 				}
 			?>       
         </div>
@@ -97,20 +97,45 @@
        		<div class="judulin"><h2>Penjelasan</h2></div>
             <div class="jarak1"></div>
             <div class="jarak"></div>
-			 <?php
-			/*include "db.php";
-			$q1 = "SELECT nama,tempat,pukul,tanggal,lokasi,kesimpulan from event"; //memilih file dari database
-			$result = mysql_query($q1);
-			while ($data = mysql_fetch_array($result)&&$cek==1) {
+            <style type="text/css">
+            .lihatfoto{
+				border-radius:6px;
+				width:96%;
+				height:400px;
+				margin-bottom:10px;
+			}
+			.maujelas{
+				font-family: 'Muli-Light';
+				border-radius:6px;
+				margin:1%;
+				padding:2%;
+				width:98%;
+				margin-top:0;	
+			}
+			</style>
+			<?php
+			$halaman=$_GET['tempat'];
+			$q="select lokasi,lokasitxt from event order by date desc";
+			$result=mysql_query($q);
+			if($halaman==''){
+			while ($data = mysql_fetch_array($result)) {
 				$loc = $data['lokasi'];
-				echo"<div class='jelasevent'><img class='gambareventas' src=$loc align='left'/>
-							Nama Event : $data[0]<br/>
-							Tempat : $data[1]<br/>
-							pukul : $data[2]<br/>
-							Kesimpulan : $data[5]<br/>
-						</div><br/>";
-				}*/
-			?>       
+				echo "<div class='maujelas'><img class='lihatfoto' src=$loc align='left'/>";
+				$buka=fopen($data[1],"r");
+			$baca=fread($buka,4096);
+			echo "$baca</div>";
+			break;}
+			}
+			else{
+			while ($data = mysql_fetch_array($result)) {
+				if($halaman==$data[1]){
+				$loc = $data['lokasi'];
+				echo "<div class='maujelas'><img class='lihatfoto' src=$loc align='left'/>";
+			}}
+			$buka=fopen($halaman,"r");
+			$baca=fread($buka,4096);
+			echo "$baca</div>";
+			}?>
         </div>
         <div class="sponsor">
 			<div class="judulin"><h2>Sponsor</h2></div>
