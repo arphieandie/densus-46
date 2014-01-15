@@ -1,4 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+	include ('db.php');
+	session_start();
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,13 +46,16 @@
             <div class="headerfix">
 				<ul class="menu" id="menu">
             		<li>
-						<a href="#" class="menulink"><!--<img src="images/jyjtyj.jpg" width="130px" height="50px" />--></a>
+						<a href="#" class="menulink"><?php $username=$_SESSION["Login"]; echo $_SESSION["Login"]; ?></a>
 						<ul>	
                         	<li>
                             	<a href="login_profil.php">Profil</a>
                             </li>
 							<li>
 								<a href="login_setting.php">Setting</a>
+							</li>
+                            <li>
+								<a href="login_trans.php">Transaksi</a>
 							</li>
                             <li>
 								<a href="Logout.php">Logout</a>
@@ -66,22 +73,54 @@
     <div class="setting">
     	<div class="judulin"><h2>Setting</h2></div>
         <div class="jarak1"></div>
-        <form method="post" name="form" class="formsetting">
+        <?php
+		include "db.php";
+		$cek=false;
+			  $user=$_SESSION["Login"];
+			$q1 = "SELECT id,usermane,basecamp,aliran,ket,no from setting"; //memilih file dari database
+				$result = mysql_query($q1);
+				while ($data = mysql_fetch_array($result)) {
+					if($data[0]==$user){
+						$cek=true;		
+		?>
+        <form method="post" action="masuk.php" name="form" class="formsetting" enctype="multipart/form-data">
+        	<input type="hidden" name="no" value="<?php echo $data[5]; ?>" />
+        	Nama Band :<br/>
+      		<input type='text' name='satu'  value='<?php echo $data[1]; ?>'/><br />
+       		Basecamp :<br/>
+            <input type='text' name='dua'  value='<?php echo $data[2]; ?>'/><br />
+			Aliran :<br/>
+      		<input type='text' name='tiga'  value='<?php echo $data[3]; ?>'/><br />
+       		Gambar :<br/>
+            <input type='file' name='foto' class='b' /><br />
+			Keterangan (Maks 20kata):<br/>
+			<textarea name='empat' cols='100' rows='3'><?php echo $data[4]; ?></textarea><br />
+			<input type='submit' value='Edit' class='b' />
+            <input type="reset" value="Reset" class="b"/>
+        </form>
+        <?php
+				break;
+				}}
+				if(!$cek){
+		?>
+        <form method="post" action="tambah.php" name="form" class="formsetting" enctype="multipart/form-data">
+        <input type="hidden" name="peng" value="<?php echo $user; ?>" />
         	Nama Band :<br/>
       		<input type='text' name='namaBand' /><br />
        		Basecamp :<br/>
             <input type='text' name='basecamp' /><br />
 			Aliran :<br/>
-      		<input type='text' name='pukul' /><br />
-       		Personil :<br/>
-            <input type='text' name='ddmmyyyy' /><br />
-			Gambar :<br/>
+      		<input type='text' name='aliran' /><br />
+       		Gambar :<br/>
             <input type='file' name='foto' class='b' /><br />
 			Keterangan (Maks 20kata):<br/>
 			<textarea name='simpul' cols='100' rows='3'></textarea><br />
 			<input type='submit' value='Tambah' class='b' />
             <input type="reset" value="Reset" class="b"/>
         </form>
+        <?php
+				}
+		?>
     </div>
     <div class="bawah">
         <p class="copy">
