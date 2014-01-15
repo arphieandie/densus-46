@@ -4,14 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Newbie</title>
 <link rel="stylesheet" href="tampilan.css" type="text/css" />
+<!--<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search.js"></script>-->
 <style type="text/css">
+.lik{
+	text-decoration: none;
+}
 .bandana{
-	background:rgba(0,0,0,0.8);
-	color:#0FF;
+	color:#222;
 	width:94%;
 	height:30px;
 	padding:10px;
-	font-family:Verdana, Geneva, sans-serif;
+	font-family: 'Muli-Light';
 	font-size:14px;
 	margin-bottom:10px;
 	border-radius:8px;
@@ -28,13 +32,12 @@
 	margin:5px;
 }
 .donloadlagu{
-	color:#3FF;
-	font-family:Verdana, Geneva, sans-serif;
+	color:#222;
+	font-family: 'Muli-Light';
 	font-size:14px;
 	font-style:italic;
 	float:left;
 	width:50%;
-	background:rgba(0,0,0,0.8);
 	/*border-radius:4px;*/
 	border-bottom:#9CF;
 	border-bottom-style:solid;
@@ -47,7 +50,7 @@
 	width:200px;
 	height:30px;
 	float:right;
-	background:#3F3;
+	background: url(images/header.png);
 	border-radius:6px;
 }
 .download:hover{
@@ -64,10 +67,10 @@
 					<a href="index.php">Home</a>
 				</li>
 				<li>
-					<a href="event.php">Event</a>
+					<a href="event.php?tempat=">Event</a>
 				</li>
 				<li class="current">
-					<a href="profil.php">Profil</a>
+					<a href="profil.php?id=">Profil</a>
 				</li>
 			</ul>
 		</div>
@@ -79,30 +82,58 @@
             <div class="jarak"></div>
             <?php
 				include "db.php";
-				$query = "SELECT * FROM datamember";
+				$query = "SELECT username,suka from datamember";
 				$hasil_query = mysql_query($query);
-		
+				$cek=true;
 				while ($status=mysql_fetch_row($hasil_query)) {
-					echo "<a onclick=''><div class='bandana'><img src='images/sound.jpg' width='30px' height='30px' align='left'/>$status[0]</div></a>";
-				}
+					$q='SELECT id,lokasi from setting';
+					$h=mysql_query($q);
+					while ($data=mysql_fetch_row($h)) {
+						if($data[0]==$status[0]){
+							$lok=$data[1];
+					echo "<a class='lik' href='?id=$status[0]'><div class='bandana'><img src='$lok' width='50px' height='50px' align='left'/>$status[0]<br/><img  src='images/LikeIcon.png' width='20px' height='20px'/> $status[1] like</div></a><hr/>";
+				}}}
+				$cek=false;
 			?>
             
         </div>
         <div class="status">
+        	<style type="text/css">
+			.tampilKet{
+				width:98%;
+				border-radius:6px;
+				padding:6px;
+				color:#222;
+				font-family: "Muli";
+				font-size:18px;
+				height:220px;
+			}
+			.tampilKet img{
+				border-radius:6px;
+				margin:8px;	
+			}
+			.statusKomen{
+				width:98%;
+				border-radius:6px;
+				padding:6px;
+				color:#222;
+				font-size:16px;
+				height:20px;
+			}
+			.lik{
+				font-family: "Muli";
+				font-size:18px;
+				text-decoration: none;
+			}
+			</style>
         	<div class="judulin"><h2>Nama Band</h2></div>
             <div class="jarak1"></div>
-                <!--<div id="komen">
+            <div class="jarak"></div>
+                <div id="komen">
 					<?php
-                        /*mysql_connect("localhost","root","");
-                        mysql_select_db("newbie");
-                        $query = "SELECT * FROM status ORDER BY Date DESC";
-                        $hasil_query = mysql_query($query);
-                
-                        while ($status=mysql_fetch_row($hasil_query)) {
-                            echo "<div class='tampilkomen'><h3 class='nama'>$status[1] - $status[0]</h3></div>";
-                        }*/
-                    ?>
-                </div>-->
+					include ("selip.php");
+			?>
+                </div>
         </div>
         <div class="lagu">
 			<div class="judulin"><h2>Lagu</h2></div>
@@ -110,16 +141,44 @@
             <div class="jarak"></div>
             <?php
 			/*$member=$_SESSION["Login"];username,='".$member."'*/    
-			$q1 = "SELECT namalagu,lokasi from lagu"; //memilih file dari database
+			$q1 = "SELECT namalagu,lokasi,id from lagu"; //memilih file dari database
 			$result = mysql_query($q1);
-			while ($data = mysql_fetch_array($result)) {
+			if($id==''){
+				while ($data = mysql_fetch_array($result)) {
+				if($peng==$data[2]){
+					$q1uery = 'SELECT id,lagu,harga from price'; //memilih file dari database
+					$r = mysql_query($q1uery);
+					while ($d = mysql_fetch_array($r)) {
+						if($d[0]==$data[2]&&$data[0]==$d[1]){
 				$loc = $data['lokasi'];
 				echo"<div class='donloadlagu'><img src='images/sound.jpg' width='20px' height='20px' align='left'/>$data[0]
-						<form class='doload'>
-						<input type=\"button\" value=\"Download\" class=\"download\" onclick=\"window.location.href='transaksi.php'\" />
+						<form class='doload' method='post' action='transaksi.php'>
+								<input type='hidden' name='id' value=$data[2] />
+								<input type='hidden' name='lagu' value='$d[1]' />
+								<input type='hidden' name='harga' value=$d[2] />
+						<input type=\"submit\" value=\"$d[2]$ Download\" class=\"download\" />
             			</form>
-						</div>";
+						</div>";}}
+						}}
 				}
+			else{
+			while ($data = mysql_fetch_array($result)) {
+				if($id==$data[2]){
+					$q1uery = 'SELECT id,lagu,harga from price'; //memilih file dari database
+					$r = mysql_query($q1uery);
+					while ($d = mysql_fetch_array($r)) {
+						if($d[0]==$data[2]&&$data[0]==$d[1]){
+						$loc = $data['lokasi'];
+						echo"<div class='donloadlagu'><img src='images/sound.jpg' width='20px' height='20px' align='left'/>$data[0]
+								<form class='doload' method='post' action='transaksi.php'>
+								<input type='hidden' name='id' value=$data[2]>
+								<input type='hidden' name='lagu' value='$d[1]'>
+								<input type='hidden' name='harga' value=$d[2]>
+								<input type=\"submit\" value=\"$d[2]$ Download\" class=\"download\" />
+								</form>
+								</div>";
+					}}
+						}}}
 			?> 
         </div>
         <div class="photo">
@@ -128,12 +187,20 @@
             <div class="jarak"></div>
              <?php
 			/*$member=$_SESSION["Login"];username,='".$member."'*/    
-			$q1 = "SELECT namafoto,lokasi from photo"; //memilih file dari database
+			$q1 = "SELECT namafoto,lokasi,id from photo"; //memilih file dari database
 			$result = mysql_query($q1);
-			while ($data = mysql_fetch_array($result)) {
+			if($id==''){
+				while ($data = mysql_fetch_array($result)) {
+				if($peng==$data[2]){
 				$loc = $data['lokasi'];
-				echo"<img class='gambarphoto' src=$loc align='left'/>";
-				}
+				echo"<a href='css.php?gambar=$data[0],id=$data[2]'><img class='gambarphoto' src=$loc align='left'/></a>";
+				}}
+			}else{
+			while ($data = mysql_fetch_array($result)) {
+				if($id==$data[2]){
+				$loc = $data['lokasi'];
+				echo"<a href='css.php?gambar=$data[0]&id=$data[2]'><img class='gambarphoto' src=$loc align='left'/></a>";
+				}}}
 			?>       
 
         </div>
