@@ -26,11 +26,12 @@
 		include "index.php";
 	}
 	else{
+		$nilai=1;
 		echo "<script type='text/javascript'>alert ('Berhasil Mendaftar');</script>";
 		include "index.php";
-		$query = "INSERT INTO datamember VALUES('".$user."','".$password."')";
+		$query = "INSERT INTO datamember VALUES('".$user."','".$password."','".$nilai."')";
 		mysql_query($query);
 		
-		header("location:index.php");
+		echo"<meta http-equiv='refresh'content='0;url=index.php'>";
 	}
 ?>
